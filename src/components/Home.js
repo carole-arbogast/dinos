@@ -14,7 +14,7 @@ const CoreImage = styled.img`
 `;
 
 function Home() {
-	const [isModalOpen, setIsModalOpen] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	useEffect(() => {
 		let timer = setTimeout(() => setIsModalOpen(true), 2000);
