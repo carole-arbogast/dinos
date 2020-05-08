@@ -42,6 +42,7 @@ const Logo = styled.img`
 const MomoWrapper = styled.div`
 	display: flex;
 	align-items: center;
+	width: 100%;
 `;
 
 const Momo = styled.img`
