@@ -3,40 +3,61 @@ import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import momo from "../images/momo.png";
-import logo from "../images/logo.png";
+import logo from "../images/logo1.png";
+import uncleSam from "../images/uncle-sam.jpg";
 
 const Cross = styled.p`
 	font-size: 2rem;
 	margin: 0 0.5rem 0 0;
-	align-self: flex-end;
 	cursor: pointer;
 	&:hover {
 		color: lightgray;
 	}
 `;
 
+const HeaderWrapper = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+`;
+
+const FlexDiv = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	flex: 2;
+`;
+
 const cryAnimation = keyframes`
   from {
 	font-size: 1vw;
 	color: lightgreen;
+	margin: 0 1rem 0 1rem;
+
   }
 
   to {
+	margin: 0 1rem 0 1rem;	  
    font-size: 4vw;
    color: lightgreen;
   }
 `;
 
 const AnimatedWarCry = styled.h2`
-	display: inline-block;
 	animation: ${cryAnimation} 2s linear 1;
-	padding: 2rem 1rem;
-	font-size: 1.2rem;
+	margin: 0 1rem 0 1rem;
 `;
 
 const Logo = styled.img`
-	width: auto;
-	height: 30%;
+	width: 13%;
+	height: auto;
+	margin: 1rem;
+`;
+
+const UncleSam = styled.img`
+	margin: 1rem;
+	max-height: 35vh;
 `;
 
 const MomoWrapper = styled.div`
@@ -46,8 +67,8 @@ const MomoWrapper = styled.div`
 `;
 
 const Momo = styled.img`
-	width: 15%;
-	height: auto;
+	width: auto;
+	max-height: 18vh;
 	align-self: flex-start;
 	cursor: pointer;
 `;
@@ -59,11 +80,35 @@ const WarCry = styled.h2`
 `;
 
 const Header = styled.h1`
-	margin: 0 0 0.5rem 0;
+	margin: 1rem 0 0 0;
+	font-size: 2.5rem;
+`;
+const SmallHeader = styled.p`
+	font-size: 1.25rem;
+`;
+
+const Quote = styled.div`
+	max-width: 25%;
+	margin: 1rem;
 `;
 const Text = styled.h2`
-	font-size: 1rem;
+	font-size: 1.25rem;
 	margin: 0.5rem 0 0 0;
+`;
+
+const Button = styled.button`
+	margin-top: 5rem;
+	border: none;
+	background: #80391e;
+	padding: 1rem;
+	border-radius: 4px;
+	color: white;
+	font-size: 1rem;
+	cursor: pointer;
+
+	&:hover {
+		background: #80392e;
+	}
 `;
 
 const Icon = styled(FontAwesomeIcon)`
@@ -76,16 +121,29 @@ function DinoModalContent({ setGifVisible }) {
 
 	return (
 		<>
-			<Cross onClick={() => setGifVisible(true)}>X</Cross>
-			<Header>La Coa des Morfales</Header>
-			<Logo src={logo} alt="" />
-			<Text>Rejoignez Momo et sa bande de dinos !</Text>
-			<Text>
-				<Icon icon="quote-left" />
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Doloribus, iste.
-				<Icon icon="quote-right" />
-			</Text>
+			<HeaderWrapper>
+				<Logo src={logo} alt="" />
+				<Header>
+					La Coa des Morfales{" "}
+					<SmallHeader>
+						Rejoignez Momo et sa bande de dinos !
+					</SmallHeader>
+				</Header>
+				<Cross onClick={() => setGifVisible(true)}>X</Cross>
+			</HeaderWrapper>
+
+			<FlexDiv>
+				<UncleSam src={uncleSam} alt="" />
+				<Quote>
+					<Text>
+						<Icon icon="quote-left" />
+						Mange un félin, garde la marmotte pour demain
+						<Icon icon="quote-right" />
+					</Text>
+					<Button>Rejoindre les dinos</Button>
+				</Quote>
+			</FlexDiv>
+
 			<MomoWrapper>
 				<Momo
 					src={momo}

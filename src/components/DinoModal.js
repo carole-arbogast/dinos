@@ -17,8 +17,8 @@ const ModalWrapper = styled.div`
 
 const ModalContent = styled.div`
 	background: ${(props) => (props.darkBackground ? "black" : "#053010")};
-	width: 75%;
-	height: 75vh;
+	min-height: 75%;
+	width: 70%;
 	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
