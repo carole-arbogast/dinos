@@ -69,7 +69,7 @@ const Logo = styled.img`
 
 const UncleSam = styled.img`
 	margin: 1rem;
-	max-height: 45vh;
+	max-height: 40vh;
 	border-radius: 4px;
 	border: 1px solid lightgray;
 `;
@@ -148,12 +148,11 @@ const BackgroundImage = styled.img`
 	opacity: 0.15;
 `;
 
-function DinoModalContent({ setGifVisible }) {
+function DinoModalContent({ setCurrentDisplay }) {
 	const [animatedWarCry, setAnimatedWarCry] = useState(false);
 
 	const handleGroar = () => {
 		const audio = new Audio(groar);
-		console.log(audio);
 		audio.play();
 		setAnimatedWarCry(true);
 		let timer = setTimeout(() => setAnimatedWarCry(false), 1500);
@@ -177,7 +176,7 @@ function DinoModalContent({ setGifVisible }) {
 							Rejoignez Momo et sa bande de dinos !
 						</SmallHeader>
 					</Header>
-					<Cross onClick={() => setGifVisible(true)}>X</Cross>
+					<Cross onClick={() => setCurrentDisplay("quit")}>X</Cross>
 				</HeaderWrapper>
 				<FlexDiv>
 					<UncleSam src={uncleSam} alt="" />
@@ -187,7 +186,9 @@ function DinoModalContent({ setGifVisible }) {
 							Mange un félin, garde la marmotte pour demain
 							<Icon icon="quote-right" />
 						</Text>
-						<Button>Rejoindre les dinos</Button>
+						<Button onClick={() => setCurrentDisplay("welcome")}>
+							Rejoindre les dinos
+						</Button>
 					</Quote>
 				</FlexDiv>
 				<MomoWrapper>
