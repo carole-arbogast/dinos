@@ -15,9 +15,17 @@ const CoreImage = styled.img`
 
 function Home() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const handlePopup = () => {
+		setIsModalOpen(true);
+		const audio = new Audio(
+			"https://soundcloud.com/user-966554889/la-dalle-test/s-HCS7kkW8gBQ"
+		);
+		console.log(audio);
+		audio.play();
+	};
 
 	useEffect(() => {
-		let timer = setTimeout(() => setIsModalOpen(true), 2000);
+		let timer = setTimeout(() => handlePopup(), 2000);
 		return () => {
 			clearTimeout(timer);
 		};

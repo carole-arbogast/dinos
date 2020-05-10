@@ -16,16 +16,12 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalContent = styled.div`
-	background: ${(props) => (props.darkBackground ? "black" : "#053010")};
 	min-height: 75%;
 	width: 70%;
 	border-radius: 6px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	justify-content: space-between;
+
 	border: 1px solid lightgray;
+	position: relative;
 `;
 
 const DinoGif = styled.img`
