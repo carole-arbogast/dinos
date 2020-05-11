@@ -15,7 +15,7 @@ const CoreImage = styled.img`
 `;
 
 function Home() {
-	const [isModalOpen, setIsModalOpen] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const handlePopup = () => {
 		setIsModalOpen(true);
