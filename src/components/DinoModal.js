@@ -3,8 +3,7 @@ import styled from "styled-components";
 import DinoModalContent from "./DinoModalContent";
 import dinoGif from "../images/dinos.gif";
 import logo from "../images/logo1.png";
-import background from "../images/background.jpg";
-import enter from "../images/enter.png";
+import welcomeBackground from "../images/welcome.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ModalWrapper = styled.div`
@@ -58,11 +57,16 @@ const Logo = styled.img`
 `;
 
 const Background = styled.div`
-	background: #074701;
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	z-index: 1;
+`;
+
+const WelcomeText = styled.h1`
+	color: black;
+	font-size: 4rem;
+	-webkit-text-stroke: 1px white;
 `;
 
 const BackgroundImage = styled.img`
@@ -71,7 +75,7 @@ const BackgroundImage = styled.img`
 	height: 100%;
 	position: relative;
 	z-index: 1;
-	opacity: 0.15;
+	opacity: 0.7;
 `;
 
 function DinoModal() {
@@ -94,23 +98,18 @@ function DinoModal() {
 								<>
 									<Background>
 										<BackgroundImage
-											src={background}
+											src={welcomeBackground}
 											alt=""
 										/>
 									</Background>
 									<FlexDiv>
 										<Header>
-											<Icon
-												onClick={() =>
-													setCurrentDisplay("main")
-												}
-												icon="chevron-left"
-											></Icon>
-											<h1>Bienvenue ! </h1>
 											<Logo src={logo} alt="" />
 										</Header>
-										<img src={enter} alt="" />
-										<h2>C'est l'heure de l'apéro</h2>
+										<WelcomeText>Bienvenue ! </WelcomeText>
+										<WelcomeText>
+											C'est l'heure de l'apéro !
+										</WelcomeText>
 									</FlexDiv>
 								</>
 							),

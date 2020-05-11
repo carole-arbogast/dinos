@@ -14,13 +14,12 @@ const CoreImage = styled.img`
 `;
 
 function Home() {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(true);
 	const handlePopup = () => {
 		setIsModalOpen(true);
 		const audio = new Audio(
 			"https://soundcloud.com/user-966554889/la-dalle-test/s-HCS7kkW8gBQ"
 		);
-		console.log(audio);
 		audio.play();
 	};
 

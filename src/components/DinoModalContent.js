@@ -4,16 +4,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import momo from "../images/momo.png";
 import logo from "../images/logo1.png";
-import uncleSam from "../images/uncle-sam.jpg";
+import uncleSam from "../images/uncleSam.png";
+import joker from "../images/joker.png";
 import groar from "../audio/groar.mp3";
 import background from "../images/background.jpg";
 
+const blinking = keyframes`
+  0% {
+	color: white;
+  }
+
+  50% {
+
+   color: grey;
+  }
+
+  100% {
+	color: white;
+  }
+`;
+
 const Cross = styled.p`
 	font-size: 2rem;
-	margin: 0 0.5rem 0 0;
+	margin: 0 1rem 0 0;
+	animation: ${blinking} 1.5s linear infinite;
 	cursor: pointer;
 	&:hover {
-		color: lightgray;
+		color: grey;
+		animation: none;
 	}
 `;
 
@@ -43,7 +61,7 @@ const FlexDiv = styled.div`
 
 const cryAnimation = keyframes`
   from {
-	font-size: 1vw;
+	font-size: 2vw;
 	color: lightgreen;
 	margin: 0 1rem 0 1rem;
 
@@ -51,12 +69,20 @@ const cryAnimation = keyframes`
 
   to {
 	margin: 0 1rem 0 1rem;	  
-   font-size: 4vw;
+   font-size: 4.5vw;
    color: lightgreen;
   }
 `;
 
-const AnimatedWarCry = styled.h2`
+const WarCry = styled.h2`
+	font-size: 4.5vw;
+	font-weight: 300;
+	color: lightgreen;
+	margin: 0 1rem 0 1rem;
+	font-family: "Modak", cursive;
+`;
+
+const AnimatedWarCry = styled(WarCry)`
 	animation: ${cryAnimation} 1.5s linear 1;
 	margin: 0 1rem 0 1rem;
 `;
@@ -67,11 +93,29 @@ const Logo = styled.img`
 	margin: 1rem;
 `;
 
+const cardAnimation = keyframes`
+  0% {
+    border: 1px solid white;
+  }
+  50% {
+    border: 1px solid green;
+  }
+  100%{
+    border: 1px solid white;
+  }
+`;
+
 const UncleSam = styled.img`
 	margin: 1rem;
 	max-height: 40vh;
-	border-radius: 4px;
-	border: 1px solid lightgray;
+	border-radius: 10px;
+	cursor: pointer;
+	animation: ${cardAnimation} 1.5s linear infinite;
+
+	&:hover {
+		animation: none;
+		border: 2px solid lightgray;
+	}
 `;
 
 const MomoWrapper = styled.div`
@@ -87,18 +131,15 @@ const Momo = styled.img`
 	cursor: pointer;
 `;
 
-const WarCry = styled.h2`
-	font-size: 4vw;
-	color: lightgreen;
-	margin: 0 1rem 0 1rem;
-`;
-
 const Header = styled.h1`
 	margin: 1rem 0 0 0;
-	font-size: 2rem;
+	font-size: 3.5rem;
+	font-weight: 300;
+	font-family: "Modak", cursive;
 `;
 const SmallHeader = styled.p`
 	font-size: 1.25rem;
+	font-family: "Emilys Candy", cursive;
 `;
 
 const Quote = styled.div`
@@ -120,6 +161,7 @@ const Button = styled.button`
 	font-size: 1rem;
 	cursor: pointer;
 	border: 1px solid lightgray;
+	font-family: "Emilys Candy", cursive;
 
 	&:hover {
 		background: #354e4f;
@@ -129,6 +171,15 @@ const Button = styled.button`
 const Icon = styled(FontAwesomeIcon)`
 	color: green;
 	margin: 0.5rem;
+`;
+
+const Arrow = styled(FontAwesomeIcon)`
+	font-size: 2rem;
+	font-weight: 800;
+	color: white;
+	align-self: flex-start;
+	margin: 0 0 1rem 1.5rem;
+	animation: ${blinking} 1.5s linear infinite;
 `;
 
 const Background = styled.div`
@@ -150,6 +201,7 @@ const BackgroundImage = styled.img`
 
 function DinoModalContent({ setCurrentDisplay }) {
 	const [animatedWarCry, setAnimatedWarCry] = useState(false);
+	const [isCardFront, setIsCardFront] = useState(true);
 
 	const handleGroar = () => {
 		const audio = new Audio(groar);
@@ -179,7 +231,20 @@ function DinoModalContent({ setCurrentDisplay }) {
 					<Cross onClick={() => setCurrentDisplay("quit")}>X</Cross>
 				</HeaderWrapper>
 				<FlexDiv>
-					<UncleSam src={uncleSam} alt="" />
+					{isCardFront ? (
+						<UncleSam
+							onClick={() => setIsCardFront(false)}
+							src={uncleSam}
+							alt=""
+						/>
+					) : (
+						<UncleSam
+							onClick={() => setIsCardFront(true)}
+							src={joker}
+							alt=""
+						/>
+					)}
+
 					<Quote>
 						<Text>
 							<Icon icon="quote-left" />
@@ -191,6 +256,7 @@ function DinoModalContent({ setCurrentDisplay }) {
 						</Button>
 					</Quote>
 				</FlexDiv>
+				<Arrow icon="arrow-down"></Arrow>
 				<MomoWrapper>
 					<Momo src={momo} alt="" onClick={handleGroar} />
 					{animatedWarCry ? (
