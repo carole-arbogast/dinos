@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import DinoModal from "./DinoModal";
 import hordesView from "../images/hordes-main.jpg";
+import morfales from "../audio/morfales.mp3";
 
 const Core = styled.div`
 	width: 100%;
@@ -17,9 +18,7 @@ function Home() {
 	const [isModalOpen, setIsModalOpen] = useState(true);
 	const handlePopup = () => {
 		setIsModalOpen(true);
-		const audio = new Audio(
-			"https://soundcloud.com/user-966554889/la-dalle-test/s-HCS7kkW8gBQ"
-		);
+		const audio = new Audio(morfales);
 		audio.play();
 	};
 

@@ -17,7 +17,7 @@ const blinking = keyframes`
 
   50% {
 
-   color: grey;
+   color: #1c1c1c;
   }
 
   100% {
@@ -65,7 +65,7 @@ const FlexDiv = styled.div`
 const cryAnimation = keyframes`
   from {
 	font-size: 2vw;
-	color: lightgreen;
+	color: #093004;
   margin: 0 1rem 0 1rem;
   	@media (max-width: 800px) {
 		font-size: 1vw;
@@ -76,7 +76,7 @@ const cryAnimation = keyframes`
   to {
 	margin: 0 1rem 0 1rem;	  
    font-size: 4.5vw;
-   color: lightgreen;
+   color: #093004;
 
    	@media (max-width: 800px) {
 		font-size: 3.75vw;
@@ -87,7 +87,8 @@ const cryAnimation = keyframes`
 const WarCry = styled.h2`
 	font-size: 4.5vw;
 	font-weight: 300;
-	color: lightgreen;
+	color: #093004;
+	-webkit-text-stroke: 1px white;
 	margin: 0 1rem 0 1rem;
 	font-family: "Modak", cursive;
 
@@ -213,7 +214,6 @@ const Arrow = styled(FontAwesomeIcon)`
 `;
 
 const Background = styled.div`
-	background: #074701;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -226,7 +226,7 @@ const BackgroundImage = styled.img`
 	height: 100%;
 	position: relative;
 	z-index: 1;
-	opacity: 0.15;
+	opacity: 0.6;
 `;
 
 function DinoModalContent({ setCurrentDisplay }) {
