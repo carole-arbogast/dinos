@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import logo from "../images/logo1.png";
-import welcomeBackground from "../images/welcome.png";
+import welcomeBackground from "../images/welcome.jpg";
 
 const Background = styled.div`
 	height: 100%;

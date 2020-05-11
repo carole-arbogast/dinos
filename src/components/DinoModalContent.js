@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import momo from "../images/momo.png";
 import logo from "../images/logo1.png";
-import uncleSam from "../images/uncleSam.png";
-import joker from "../images/joker.png";
+import uncleSam from "../images/uncleSam.jpg";
+import joker from "../images/joker.jpg";
 import groar from "../audio/groar.mp3";
 import bear from "../audio/bear.mp3";
 import background from "../images/background.jpg";
