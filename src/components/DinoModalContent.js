@@ -7,6 +7,7 @@ import logo from "../images/logo1.png";
 import uncleSam from "../images/uncleSam.png";
 import joker from "../images/joker.png";
 import groar from "../audio/groar.mp3";
+import bear from "../audio/bear.mp3";
 import background from "../images/background.jpg";
 
 const blinking = keyframes`
@@ -228,7 +229,15 @@ function DinoModalContent({ setCurrentDisplay }) {
 							Rejoignez Momo et sa bande de dinos !
 						</SmallHeader>
 					</Header>
-					<Cross onClick={() => setCurrentDisplay("quit")}>X</Cross>
+					<Cross
+						onClick={() => {
+							setCurrentDisplay("quit");
+							const audio = new Audio(bear);
+							audio.play();
+						}}
+					>
+						X
+					</Cross>
 				</HeaderWrapper>
 				<FlexDiv>
 					{isCardFront ? (
