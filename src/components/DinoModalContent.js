@@ -44,12 +44,14 @@ const Content = styled.div`
 	align-items: center;
 	text-align: center;
 	justify-content: space-between;
+	width: 100%;
 `;
 
 const HeaderWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	width: 100%;
 `;
 
 const FlexDiv = styled.div`
@@ -64,7 +66,10 @@ const cryAnimation = keyframes`
   from {
 	font-size: 2vw;
 	color: lightgreen;
-	margin: 0 1rem 0 1rem;
+  margin: 0 1rem 0 1rem;
+  	@media (max-width: 800px) {
+		font-size: 1vw;
+	}
 
   }
 
@@ -72,6 +77,10 @@ const cryAnimation = keyframes`
 	margin: 0 1rem 0 1rem;	  
    font-size: 4.5vw;
    color: lightgreen;
+
+   	@media (max-width: 800px) {
+		font-size: 3.75vw;
+	}
   }
 `;
 
@@ -81,17 +90,15 @@ const WarCry = styled.h2`
 	color: lightgreen;
 	margin: 0 1rem 0 1rem;
 	font-family: "Modak", cursive;
+
+	@media (max-width: 800px) {
+		font-size: 3.5vw;
+	}
 `;
 
 const AnimatedWarCry = styled(WarCry)`
 	animation: ${cryAnimation} 1.5s linear 1;
 	margin: 0 1rem 0 1rem;
-`;
-
-const Logo = styled.img`
-	width: 13%;
-	height: auto;
-	margin: 1rem;
 `;
 
 const cardAnimation = keyframes`
@@ -113,6 +120,11 @@ const UncleSam = styled.img`
 	cursor: pointer;
 	animation: ${cardAnimation} 1.5s linear infinite;
 
+	@media (max-width: 768px) {
+		max-height: 25vh;
+		margin: 0.5rem;
+	}
+
 	&:hover {
 		animation: none;
 		border: 2px solid lightgray;
@@ -133,10 +145,19 @@ const Momo = styled.img`
 `;
 
 const Header = styled.h1`
+	width: 100%;
 	margin: 1rem 0 0 0;
 	font-size: 3.5rem;
 	font-weight: 300;
 	font-family: "Modak", cursive;
+
+	@media (max-width: 500px) {
+		font-size: 1.5rem;
+	}
+
+	@media (max-width: 950px) {
+		font-size: 2.5rem;
+	}
 `;
 const SmallHeader = styled.p`
 	font-size: 1.25rem;
@@ -146,6 +167,10 @@ const SmallHeader = styled.p`
 const Quote = styled.div`
 	max-width: 50%;
 	margin: 1rem;
+
+	@media (max-width: 800px) {
+		margin: 0.5rem;
+	}
 `;
 const Text = styled.h2`
 	font-size: 1.25rem;
@@ -166,6 +191,10 @@ const Button = styled.button`
 
 	&:hover {
 		background: #354e4f;
+	}
+
+	@media (max-width: 800px) {
+		margin-top: 0.5rem;
 	}
 `;
 
@@ -222,7 +251,7 @@ function DinoModalContent({ setCurrentDisplay }) {
 
 			<Content>
 				<HeaderWrapper>
-					<Logo src={logo} alt="" />
+					<div></div>
 					<Header>
 						La Coa des Morfales{" "}
 						<SmallHeader>

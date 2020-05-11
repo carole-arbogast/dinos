@@ -20,12 +20,13 @@ const ModalWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: scroll;
 `;
 
 const ModalContent = styled.div`
 	background: ${(props) => props.backgroundColor};
 	min-height: 75%;
-	width: 70%;
+	width: 80%;
 	border-radius: 6px;
 	border: 1px solid lightgray;
 	position: relative;
