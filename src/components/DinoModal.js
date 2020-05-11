@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import DinoModalContent from "./DinoModalContent";
 import dinoGif from "../images/dinos.gif";
 import logo from "../images/logo1.png";
@@ -47,8 +47,30 @@ const FlexDiv = styled.div`
 	text-align: center;
 `;
 
-const Icon = styled(FontAwesomeIcon)`
+const blinking = keyframes`
+  0% {
+	color: black;
+  }
+
+  50% {
+
+   color: grey;
+  }
+
+  100% {
+	color: black;
+  }
+`;
+
+const Cross = styled.p`
+	font-size: 2rem;
+	margin: 0 1rem 0 0;
+	animation: ${blinking} 1.5s linear infinite;
 	cursor: pointer;
+	&:hover {
+		color: grey;
+		animation: none;
+	}
 `;
 
 const Logo = styled.img`
@@ -105,6 +127,13 @@ function DinoModal() {
 									<FlexDiv>
 										<Header>
 											<Logo src={logo} alt="" />
+											<Cross
+												onClick={() =>
+													setCurrentDisplay("quit")
+												}
+											>
+												X
+											</Cross>
 										</Header>
 										<WelcomeText>Bienvenue ! </WelcomeText>
 										<WelcomeText>
