@@ -8,6 +8,7 @@ import joker from "../images/joker.jpg";
 import groar from "../audio/groar.mp3";
 import bear from "../audio/bear.mp3";
 import background from "../images/background.jpg";
+import morfales from "../audio/morfales.mp3";
 
 const blinking = keyframes`
   0% {
@@ -31,6 +32,17 @@ const Cross = styled.p`
 	cursor: pointer;
 	&:hover {
 		color: grey;
+		animation: none;
+	}
+`;
+
+const Play = styled(FontAwesomeIcon)`
+	font-size: 2rem;
+	margin: 0.5rem 0 0 0.5rem;
+	color: #382200;
+	cursor: pointer;
+	&:hover {
+		color: #6e4302;
 		animation: none;
 	}
 `;
@@ -228,7 +240,7 @@ const BackgroundImage = styled.img`
 	opacity: 0.6;
 `;
 
-function DinoModalContent({ setCurrentDisplay }) {
+function DinoModalContent({ setCurrentDisplay, isPlaying }) {
 	const [animatedWarCry, setAnimatedWarCry] = useState(false);
 	const [isCardFront, setIsCardFront] = useState(true);
 
@@ -242,6 +254,13 @@ function DinoModalContent({ setCurrentDisplay }) {
 		};
 	};
 
+	const handleStartSong = () => {
+		if (!isPlaying) {
+			const audio = new Audio(morfales);
+			audio.play();
+		}
+	};
+
 	return (
 		<>
 			<Background>
@@ -250,7 +269,13 @@ function DinoModalContent({ setCurrentDisplay }) {
 
 			<Content>
 				<HeaderWrapper>
-					<div></div>
+					{!isPlaying && (
+						<Play
+							icon="play"
+							onClick={() => handleStartSong()}
+						></Play>
+					)}
+
 					<Header>
 						La Coa des Morfales{" "}
 						<SmallHeader>
@@ -288,7 +313,11 @@ function DinoModalContent({ setCurrentDisplay }) {
 							Mange un félin, garde la marmotte pour demain
 							<Icon icon="quote-right" />
 						</Text>
-						<Button onClick={() => setCurrentDisplay("welcome")}>
+						<Button
+							onClick={() => {
+								setCurrentDisplay("welcome");
+							}}
+						>
 							Rejoindre les dinos
 						</Button>
 					</Quote>

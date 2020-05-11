@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import logo from "../images/logo1.png";
 import welcomeBackground from "../images/welcome.jpg";
+import bear from "../audio/bear.mp3";
 
 const Background = styled.div`
 	height: 100%;
@@ -80,7 +81,15 @@ function Welcome({ setCurrentDisplay }) {
 			<FlexDiv>
 				<Header>
 					<Logo src={logo} alt="" />
-					<Cross onClick={() => setCurrentDisplay("quit")}>X</Cross>
+					<Cross
+						onClick={() => {
+							setCurrentDisplay("quit");
+							const audio = new Audio(bear);
+							audio.play();
+						}}
+					>
+						X
+					</Cross>
 				</Header>
 				<WelcomeText>Bienvenue ! </WelcomeText>
 				<WelcomeText>C'est l'heure de l'apéro !</WelcomeText>

@@ -16,10 +16,11 @@ const CoreImage = styled.img`
 
 function Home() {
 	const [isModalOpen, setIsModalOpen] = useState(true);
+	const [isPlaying, setIsPlaying] = useState(false);
 	const handlePopup = () => {
 		setIsModalOpen(true);
 		const audio = new Audio(morfales);
-		audio.play();
+		audio.play().then(() => setIsPlaying(true));
 	};
 
 	useEffect(() => {
@@ -31,7 +32,7 @@ function Home() {
 
 	return (
 		<Core>
-			{isModalOpen && <DinoModal></DinoModal>}
+			{isModalOpen && <DinoModal isPlaying={isPlaying}></DinoModal>}
 			<CoreImage src={hordesView} alt="" />
 		</Core>
 	);

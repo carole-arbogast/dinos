@@ -7,6 +7,7 @@ import {
 	faCoffee,
 	faChevronLeft,
 	faArrowDown,
+	faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import Home from "./components/Home";
 
@@ -15,6 +16,7 @@ library.add(faQuoteRight);
 library.add(faCoffee);
 library.add(faChevronLeft);
 library.add(faArrowDown);
+library.add(faPlay);
 
 function App() {
 	return (

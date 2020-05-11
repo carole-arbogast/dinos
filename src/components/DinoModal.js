@@ -47,7 +47,7 @@ const DinoGif = styled.img`
 	height: auto;
 `;
 
-function DinoModal() {
+function DinoModal({ isPlaying }) {
 	const [currentDisplay, setCurrentDisplay] = useState("main");
 	return (
 		<>
@@ -73,6 +73,7 @@ function DinoModal() {
 							main: (
 								<DinoModalContent
 									setCurrentDisplay={setCurrentDisplay}
+									isPlaying={isPlaying}
 								></DinoModalContent>
 							),
 							welcome: (
