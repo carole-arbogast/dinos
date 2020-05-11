@@ -21,7 +21,6 @@ const ModalWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: scroll;
 `;
 
 const ModalContent = styled.div`
