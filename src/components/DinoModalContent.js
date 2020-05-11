@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import momo from "../images/momo.png";
-import logo from "../images/logo1.png";
 import uncleSam from "../images/uncleSam.jpg";
 import joker from "../images/joker.jpg";
 import groar from "../audio/groar.mp3";

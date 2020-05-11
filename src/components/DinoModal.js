@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const BackIcon = styled(FontAwesomeIcon)`
 	cursor: pointer;
 	margin: 1rem;
+	color: white;
 `;
 
 const ModalWrapper = styled.div`
